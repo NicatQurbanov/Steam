@@ -28,12 +28,15 @@ namespace Steam
             return players.FindAll(p => p.Status == PlayerStatus.Blocked);
         }
 
-        public void ShowUsers(List<Player> users)
+        public void ShowUsers(List<Player> users, bool showingAllUsers = false, bool toMainMenu = true)
         {
-            Console.WriteLine($"{users[0].Status} Users:");
+            Console.WriteLine($"{(showingAllUsers ? "All" : users[0].Status)} Users:");
             foreach (Player u in users) Console.WriteLine($"{u.Nickname}.");
-            Console.WriteLine("\nPress Enter to return to the main menu...");
-            Console.ReadLine();
+            if (toMainMenu)
+            {
+                Console.WriteLine("\nPress Enter to return to the main menu...");
+                Console.ReadLine();
+            }
         }
     }
 }

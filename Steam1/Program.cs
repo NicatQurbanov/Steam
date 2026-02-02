@@ -54,12 +54,14 @@ namespace Steam
 
 
 
+            Admin admin = new("admin", PlayerStatus.Online);
             players.players.AddRange(nijat, vusal, seyyad, elvin, kamran, rashad, orxan, emil, samir, murad, ali, farid,
                 javid, anar, rauf, emin, sabir, tofig, fuad, taleh, ayaz, ruslan, ilham, namig, elshan);
 
             GameController games = new(players);
             games.Games.AddRange(csgo, dota2, pubg, valorant, fortnite, apexLegends, codWarzone, rainbowSixSiege, rust, amongUs);
-            Menu menu = new(players, games, nijat);
+            Menu menu = new(players, games, nijat, admin);
+            admin.Menu = menu;
             menu.Start();
         }
     }
